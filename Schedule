@@ -1,0 +1,38 @@
+// Define the schedule as an array of objects, with each object representing a day
+const schedule = [
+  {
+    date: '2022-03-30',
+    tasks: [
+      { time: '09:00-10:00', subject: 'History', topic: 'Rights and Protests: Civil Rights Movements in the USA' },
+      { time: '10:00-11:00', subject: 'Maths AI', topic: 'Calculus: Applications of Differentiation' },
+      { time: '11:00-12:00', subject: 'English', topic: 'Things Fall Apart: Themes and Motifs' },
+      { time: '14:00-15:00', subject: 'Biology', topic: 'Ecology: Populations and Communities' }
+    ]
+  },
+  // Add more days here...
+];
+
+// Function to generate a table in HTML for a given day's tasks
+function generateDayTable(day) {
+  let table = '<table>';
+  table += '<tr><th>Time</th><th>Subject</th><th>Topic</th></tr>';
+  for (const task of day.tasks) {
+    table += `<tr><td>${task.time}</td><td>${task.subject}</td><td>${task.topic}</td></tr>`;
+  }
+  table += '</table>';
+  return table;
+}
+
+// Function to generate the full schedule as an HTML string
+function generateScheduleHTML() {
+  let html = '';
+  for (const day of schedule) {
+    html += `<h2>${day.date}</h2>`;
+    html += generateDayTable(day);
+  }
+  return html;
+}
+
+// Example usage: generate the full schedule HTML and log it to the console
+const scheduleHTML = generateScheduleHTML();
+console.log(scheduleHTML);
